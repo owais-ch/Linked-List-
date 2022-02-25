@@ -1,0 +1,16 @@
+'''Input:
+The first line of input contains an integer T denoting the number of test cases. The first line of each test case consists of an integer N. The second line consists of N spaced integers.The last line consists of an integer k.
+
+Output:
+Print the data value of (N/k)th node in the Linked List.'''
+
+from math import ceil
+def fractionalNodes(head,k):
+        n=head
+        list1=[]
+        
+        while n!=None:
+            list1.append(n)
+            n=n.next
+            
+        return list1[ceil(len(list1)/k)-1]
