@@ -1,6 +1,6 @@
 '''
 
-Given an array of integers, implement a linked list out of the array keys. The solution should create a new node for every key and insert it onto the list's front.
+Given an array of integers, implement a linked list out of the array keys. The solution should create a new node for every key and insert it onto the list's tail.
 
 Input : [1, 2, 3, 4, 5]
 Output: 1 —> 2 —> 3 —> 4 —> 5 —> None
