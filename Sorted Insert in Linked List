@@ -1,0 +1,55 @@
+'''
+
+Given a sorted list in increasing order and a single node, insert the node into its correct sorted position in the list.
+
+Input: List = 2 —> 4 —> 6 —> 8 —> None, Node = 9
+Output: 2 —> 4 —> 6 —> 8 —> 9 —> None
+
+Input: List = 2 —> 4 —> 6 —> 8 —> None, Node = 1
+Output: 1 —> 2 —> 4 —> 6 —> 8 —> None
+
+Input: List = 1 —> 2 —> 4 —> 6 —> 8 —> 9 —> None, Node = 5
+Output: 1 —> 2 —> 4 —> 5 —> 6 —> 8 —> 9 —> None
+
+'''
+
+class Solution:
+
+	'''
+	A singly-linked list node is defined as:
+
+	class Node:
+		def __init__(self, data=None, next=None):
+			self.data = data	# data field
+			self.next = next	# pointer to the next node
+	'''
+
+	def sortedInsert(self, head: Node, node: Node) -> Node:
+		n=head
+		head=n
+		
+		if n==None:
+			n=node
+			head=n
+			return head
+		elif n.data>node.data:
+			node.next=n
+			head=node
+			return head
+			
+		count=0	
+		while n.next!=None:
+			if n.data==node.data:
+				m=node
+				m.next=n.next
+				n.next=m
+				return head
+			elif n.next.data>node.data:
+				m=node
+				m.next=n.next
+				n.next=m
+				return head
+			n=n.next
+			
+		n.next=node
+		return head
