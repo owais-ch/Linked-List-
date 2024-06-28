@@ -15,37 +15,15 @@ from collections import Counter
 class Solution:
     def deleteDuplicates(self, head):
         n=head
-        
-        list1=[]
+        m=head
+        head1=m
         
         while n!=None:
-            list1.append(n.val)
+            if n.data!=m.data:
+                m.next=n
+                m=m.next
             n=n.next
             
-        dict1=Counter(list1)
+        m.next=None
         
-        list2=[]
-        
-        for i in dict1:
-            if dict1[i]==1:
-                list2.append(i)
-        length=len(list2)
-        if length==0:
-            return None
-        
-        list2.sort()
-        
-        m=ListNode(list2[0])
-        head=m
-        
-        
-        
-        if length==1:
-            return head
-        else:
-            for i in range(1,length):
-                hh=ListNode(list2[i])
-                m.next=hh
-                m=hh
-                
-        return head
+        return head1
