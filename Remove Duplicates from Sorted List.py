@@ -8,27 +8,15 @@ Output: [1,2]'''
 class Solution:
     def deleteDuplicates(self, head):
         n=head
-        if head==None:
-            return None
-        
-        list1=[]
+        m=head
+        head1=m
         
         while n!=None:
-            list1.append(n.val)
+            if n.data!=m.data:
+                m.next=n
+                m=m.next
             n=n.next
             
-        list1=sorted(list(set(list1)))
-        length=len(list1)
+        m.next=None
         
-        n=ListNode(list1[0])
-        head=n
-        
-        if length==1:
-            return head
-        else:
-            for i in range(1,length):
-                hh=ListNode(list1[i])
-                n.next=hh
-                n=hh
-                
-        return head
+        return head1
